@@ -1,5 +1,7 @@
 package tw.hankli.pagingdemo
 
+import android.arch.paging.PagedListAdapter
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +9,19 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.layout_item.view.*
 import tw.hankli.pagingdemo.models.Item
 
-class MainAdapter(var items: List<Item>) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter : PagedListAdapter<Item, MainAdapter.ViewHolder>(diffCallback) {
+
+    companion object {
+        val diffCallback = object : DiffUtil.ItemCallback<Item>() {
+            override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_item, parent, false)
@@ -15,10 +29,8 @@ class MainAdapter(var items: List<Item>) : RecyclerView.Adapter<MainAdapter.View
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(items[position])
+        getItem(position)?.let { holder.bind(it) }
     }
-
-    override fun getItemCount(): Int = items.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

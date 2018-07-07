@@ -8,8 +8,10 @@ import tw.hankli.pagingdemo.models.Item
 
 object ItemData {
 
-    fun getItems(): List<Item> {
-        return Array(100) { Item(it, "Item $it") }.toList()
+    fun getItems(start: Int, size: Int): List<Item> {
+        return Array(size) {
+            val index = start + it
+            Item(index, "Item $index")
+        }.toList()
     }
-
 }
