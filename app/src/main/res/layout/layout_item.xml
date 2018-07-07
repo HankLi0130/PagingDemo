@@ -12,6 +12,7 @@
         android:layout_weight="1"
         android:background="@android:color/darker_gray"
         android:gravity="center"
+        android:textSize="24sp"
         tools:text="1" />
 
     <TextView
@@ -20,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:gravity="center"
+        android:textSize="24sp"
         tools:text="Item1" />
 
 </LinearLayout>
