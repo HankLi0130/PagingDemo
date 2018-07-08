@@ -8,6 +8,12 @@ import tw.hankli.pagingdemo.models.Item
 
 object ItemData {
 
+    fun getItems(size: Int): List<Item> {
+        return Array(size) {
+            Item(it, "Item $it")
+        }.toList()
+    }
+
     // 累加
     fun getIncreaseItems(start: Int, size: Int): List<Item> {
         return Array(size) {

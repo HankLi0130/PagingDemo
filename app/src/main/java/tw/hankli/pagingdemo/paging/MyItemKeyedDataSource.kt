@@ -37,6 +37,7 @@ class MyItemKeyedDataSource : ItemKeyedDataSource<Int, Item>() {
         callback.onResult(ItemData.getIncreaseItems(newKey, size))
     }
 
+
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Item>) {
 
         // Key -> 查詢的索引，這裡給的是上一頁第一筆資料的Key

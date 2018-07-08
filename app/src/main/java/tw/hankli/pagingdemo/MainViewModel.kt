@@ -16,6 +16,22 @@ class MainViewModel : ViewModel() {
         const val INITIAL_LOAD_KEY = 5
     }
 
+    /*
+     * Config的設定建議
+     *
+     * ItemKeyedDataSource  -> 1. requestedInitialKey
+     *                         2. requestedLoadSize
+     *                         3. placeholderEnabled
+     *
+     * PageKeyedDataSource  -> 1. requestedLoadSize
+     *                         2. placeholderEnabled
+     *
+     * PositionalDataSource -> 1. requestedStarPosition
+     *                         2. pageSize
+     *                         3. requestedLoadSize
+     *                         4. placeholdersEnabled
+     */
+
     init {
         val factory = ItemDataSourceFactory()
         val config = PagedList.Config.Builder()
