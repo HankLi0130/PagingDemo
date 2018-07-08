@@ -8,6 +8,7 @@ import tw.hankli.pagingdemo.models.Item
 
 object ItemData {
 
+    // 累加
     fun getIncreaseItems(start: Int, size: Int): List<Item> {
         return Array(size) {
             val index = start + it
@@ -15,6 +16,7 @@ object ItemData {
         }.toList()
     }
 
+    // 累減，陣列的第一個元素是最小的數
     fun getReduceItems(start: Int, size: Int): List<Item> {
         return Array(size) {
             val index = (start - size) + it
