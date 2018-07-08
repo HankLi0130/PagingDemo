@@ -13,6 +13,7 @@ class MainViewModel : ViewModel() {
 
     companion object {
         const val PAGE_SIZE = 10
+        const val INITIAL_LOAD_KEY = 5
     }
 
     init {
@@ -23,7 +24,9 @@ class MainViewModel : ViewModel() {
                 .setEnablePlaceholders(false)
                 .build()
 
-        itemLiveData = LivePagedListBuilder<Int, Item>(factory, config).build()
+        itemLiveData = LivePagedListBuilder<Int, Item>(factory, config)
+                //.setInitialLoadKey(INITIAL_LOAD_KEY)
+                .build()
     }
 
     override fun onCleared() {
