@@ -20,7 +20,7 @@ class MyPageKeyedDataSource : PageKeyedDataSource<Int, Item>() {
         val items = ItemData.getItems(size)
 
         // 指定 上一頁 和 下一頁 的Key
-        callback.onResult(items, items[0].id, items[items.lastIndex].id)
+        callback.onResult(items, items[0].id, items.last().id)
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, Item>) {
@@ -33,7 +33,7 @@ class MyPageKeyedDataSource : PageKeyedDataSource<Int, Item>() {
         val items = ItemData.getIncreaseItems(key, size)
 
         // 指定 下一頁 的Key
-        callback.onResult(items, items[items.lastIndex].id)
+        callback.onResult(items, items.last().id)
     }
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, Item>) {
@@ -46,6 +46,6 @@ class MyPageKeyedDataSource : PageKeyedDataSource<Int, Item>() {
         val items = ItemData.getReduceItems(key, size)
 
         // 指定 上一頁 的Key
-        callback.onResult(items, items[0].id)
+        callback.onResult(items, items.first().id)
     }
 }

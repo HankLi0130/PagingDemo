@@ -1,15 +1,36 @@
 package tw.hankli.pagingdemo.paging
 
 import android.arch.paging.PositionalDataSource
+import android.util.Log
+import tw.hankli.pagingdemo.data.ItemData
 import tw.hankli.pagingdemo.models.Item
 
 class MyPositionalDataSource : PositionalDataSource<Item>() {
 
-    override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Item>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    private val tag = this::class.java.simpleName
 
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Item>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        val pageSize = params.pageSize
+        val loadSize = params.requestedLoadSize
+        val startPosition = params.requestedStartPosition
+
+        Log.i(tag, "loadInitial -> pageSize: $pageSize, loadSize: $loadSize, startPosition: $startPosition")
+
+        val items = ItemData.getIncreaseItems(startPosition, pageSize)
+
+        callback.onResult(items, 0)
+    }
+
+    override fun loadRange(params: LoadRangeParams, callback: LoadRangeCallback<Item>) {
+
+        val loadSize = params.loadSize
+        val startPosition = params.startPosition
+
+        Log.i(tag, "loadRange -> loadSize: $loadSize, startPosition: $startPosition")
+
+        val items = ItemData.getIncreaseItems(startPosition, loadSize)
+
+        callback.onResult(items)
     }
 }

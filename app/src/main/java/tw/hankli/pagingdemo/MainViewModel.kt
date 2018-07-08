@@ -13,7 +13,7 @@ class MainViewModel : ViewModel() {
 
     companion object {
         const val PAGE_SIZE = 10
-        const val INITIAL_LOAD_KEY = 5
+        const val INITIAL_LOAD_KEY = 0
     }
 
     /*
@@ -41,7 +41,7 @@ class MainViewModel : ViewModel() {
                 .build()
 
         itemLiveData = LivePagedListBuilder<Int, Item>(factory, config)
-                //.setInitialLoadKey(INITIAL_LOAD_KEY)
+                .setInitialLoadKey(INITIAL_LOAD_KEY)
                 .build()
     }
 

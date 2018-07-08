@@ -19,6 +19,7 @@ class ItemDataSourceFactory : DataSource.Factory<Int, Item>() {
             return when (which) {
                 ITEM_KEYED -> MyItemKeyedDataSource()
                 PAGE_KEYED -> MyPageKeyedDataSource()
+                POSITIONAL -> MyPositionalDataSource()
                 else -> throw IllegalArgumentException("unknown data source")
             }
         }
@@ -28,6 +29,6 @@ class ItemDataSourceFactory : DataSource.Factory<Int, Item>() {
 
         Log.i(tag, "create data source factory")
 
-        return getDataSource(PAGE_KEYED)
+        return getDataSource(POSITIONAL)
     }
 }
