@@ -7,7 +7,7 @@ import tw.hankli.pagingdemo.models.Item
 
 /**
  * 使用時機：
- * 清楚知道每筆資料在RecyclerView的絕對位置
+ * 根據RecyclerView的絕對位置決定放資料
  */
 
 class MyPositionalDataSource : PositionalDataSource<Item>() {

@@ -33,7 +33,7 @@ class MainViewModel : ViewModel() {
      */
 
     init {
-        val factory = ItemDataSourceFactory(ItemDataSourceFactory.PAGE_KEYED)
+        val factory = ItemDataSourceFactory(ItemDataSourceFactory.POSITIONAL)
         val config = PagedList.Config.Builder()
                 .setPageSize(PAGE_SIZE)
                 .setInitialLoadSizeHint(PAGE_SIZE * 2)
@@ -43,9 +43,5 @@ class MainViewModel : ViewModel() {
         itemLiveData = LivePagedListBuilder<Int, Item>(factory, config)
                 .setInitialLoadKey(INITIAL_LOAD_KEY)
                 .build()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
     }
 }
