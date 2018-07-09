@@ -4,7 +4,7 @@ import android.arch.paging.DataSource
 import android.util.Log
 import tw.hankli.pagingdemo.models.Item
 
-class ItemDataSourceFactory : DataSource.Factory<Int, Item>() {
+class ItemDataSourceFactory(private val dataSourceType: Int) : DataSource.Factory<Int, Item>() {
 
     private val tag = this::class.java.simpleName
 
@@ -29,6 +29,6 @@ class ItemDataSourceFactory : DataSource.Factory<Int, Item>() {
 
         Log.i(tag, "create data source factory")
 
-        return getDataSource(POSITIONAL)
+        return getDataSource(dataSourceType)
     }
 }

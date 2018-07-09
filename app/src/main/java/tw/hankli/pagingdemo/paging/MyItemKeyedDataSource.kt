@@ -5,6 +5,11 @@ import android.util.Log
 import tw.hankli.pagingdemo.data.ItemData
 import tw.hankli.pagingdemo.models.Item
 
+/**
+ * 使用時機：
+ * 當RecyclerView的Item的資料有連續性，可根據資料的Key找到上一筆或下一筆資料
+ */
+
 class MyItemKeyedDataSource : ItemKeyedDataSource<Int, Item>() {
 
     private val tag = this::class.java.simpleName

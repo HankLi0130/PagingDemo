@@ -33,7 +33,7 @@ class MainViewModel : ViewModel() {
      */
 
     init {
-        val factory = ItemDataSourceFactory()
+        val factory = ItemDataSourceFactory(ItemDataSourceFactory.PAGE_KEYED)
         val config = PagedList.Config.Builder()
                 .setPageSize(PAGE_SIZE)
                 .setInitialLoadSizeHint(PAGE_SIZE * 2)

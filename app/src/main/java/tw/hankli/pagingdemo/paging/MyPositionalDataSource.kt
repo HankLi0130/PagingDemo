@@ -5,6 +5,11 @@ import android.util.Log
 import tw.hankli.pagingdemo.data.ItemData
 import tw.hankli.pagingdemo.models.Item
 
+/**
+ * 使用時機：
+ * 清楚知道每筆資料在RecyclerView的絕對位置
+ */
+
 class MyPositionalDataSource : PositionalDataSource<Item>() {
 
     private val tag = this::class.java.simpleName

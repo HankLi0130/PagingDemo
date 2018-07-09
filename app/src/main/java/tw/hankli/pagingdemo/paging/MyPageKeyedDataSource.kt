@@ -5,6 +5,12 @@ import android.util.Log
 import tw.hankli.pagingdemo.data.ItemData
 import tw.hankli.pagingdemo.models.Item
 
+/**
+ * 使用時機：
+ * 原始資料來源（遠端Server或其他資料來源）已有分頁功能
+ * 根據每頁的Key取得RecyclerView的Item資料
+ */
+
 class MyPageKeyedDataSource : PageKeyedDataSource<Int, Item>() {
 
     private val tag = this::class.java.simpleName
