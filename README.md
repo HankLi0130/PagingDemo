@@ -1,6 +1,6 @@
 # Android Paging Library 正負數範例
 
-[Medium](https://medium.com/p/aaf2e74dd546/edit)
+[Android Paging Library，初探DataSource](https://medium.com/@hankli0130/android-paging-library-%E5%88%9D%E6%8E%A2datasource-aaf2e74dd546)
 
 ## 使用Android Paging Library展示一個正負數的無限列表
 
