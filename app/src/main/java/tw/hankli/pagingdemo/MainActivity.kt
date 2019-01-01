@@ -22,14 +22,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // 分隔線
-        val itemDecor = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
-        view_item_list.addItemDecoration(itemDecor)
-
+        view_item_list.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
         view_item_list.setHasFixedSize(true)
         view_item_list.adapter = adapter
 
-        viewModel.itemLiveData.observe(this, Observer {
-            it?.let { adapter.submitList(it) }
+        viewModel.getItems().observe(this, Observer { items ->
+            items?.let { adapter.submitList(items) }
         })
     }
 }

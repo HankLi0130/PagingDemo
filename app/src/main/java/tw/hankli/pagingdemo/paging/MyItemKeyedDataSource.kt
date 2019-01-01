@@ -7,7 +7,7 @@ import tw.hankli.pagingdemo.models.Item
 
 /**
  * 使用時機：
- * 當RecyclerView資料的Key有連續性，可根據資料的Key找到上一筆或下一筆資料
+ * 當 RecyclerView 資料的 Key 有連續性，可根據資料的 Key 找到上一筆或下一筆資料
  */
 
 class MyItemKeyedDataSource : ItemKeyedDataSource<Int, Item>() {

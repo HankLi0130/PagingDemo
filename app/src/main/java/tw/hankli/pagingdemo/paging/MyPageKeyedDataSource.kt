@@ -7,8 +7,8 @@ import tw.hankli.pagingdemo.models.Item
 
 /**
  * 使用時機：
- * 原始資料來源（遠端Server或其他資料來源）已有分頁功能
- * 根據每頁的Key取得RecyclerView的Item資料
+ * 原始資料來源（遠端 Server 或其他資料來源）已有分頁功能
+ * 根據每頁的 Key 取得 RecyclerView 的 Item 資料
  */
 
 class MyPageKeyedDataSource : PageKeyedDataSource<Int, Item>() {
